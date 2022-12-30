@@ -1,0 +1,710 @@
+12/19/2022-Day1-Class1-AWS
+Linux-Server Fundamentals
+Scripting
+tools
+aws
+terraform
+===================================================================
+
+AWS Services:
+_________________
+
+
+security :IAM--------->
+storage: ebs,efs,s3
+network: vpc,route53
+database: RDS[sql]
+nosql---dynamoDB
+monitoring: cloudwatch
+autoscaling
+loadbalancers
+sns---simple notification service
+
+ci/cd:
+__________
+
+  developers tools:
+    
+   code commit,codebuild,code artifacts,code deploy ,codepipeline
+
+container services:
+________________________
+
+  ecr,ecs,eks
+
+
+are you devops engineer in aws?
+are you developer in the cloud?: elastic beanstalk,api gateways,lambda
+are you sysops engineer in the cloud?
+are you network and security engineer in the cloud?
+are you complete aws admin in the cloud?
+are you big data engineer?
+
+
+* Terraform
+
+
+How to access your aws services:
+_________________________________________
+
+using aws management console--gui-login as root user/iam user
+
+thru aws cli--command line interface---connect to the aws
+thru sdk--------download aws sdk--configure eclipse ide/sts---oops
+thru api-----java/python/node js/javascript/c#
+thru template: CFT in aws/terraform /arm templates in azure
+thru cdk---cloud development kit
+
+serverlesscomputing
+=============================================================================
+
+12/20/2022-Day-2-Class2-AWS
+
+
+ How to launch VirtualServer in aws:
+_______________________________________
+
+virtual machine/server -server os--lot of computing capacities
+
+Ec2--elastic compute cloud 
+compute service in aws
+
+used to launch virtual servers
+
+can launch unlimited vm
+
+diff config--cpu,memory,storage,network
+
+Ec2-Instance Types:
+________________________
+
+
+general purpose :
+__________________
+
+vm
+high number of cpu cores
+work loads
+dev
+testing
+webserver
+
+image/instance
+
+compute optimized:
+___________________
+
+iops
+
+fast network performance
+to deal the large amount  of processsing power and memory
+ex: bigdata,datawarehouse,BI ....
+
+
+=memory optimized:
+_________________
+
+high speed
+
+more memory /less cpu
+in-memory caches/
+
+storage optimized:
+_____________________
+
+high i/o
+
+gpu based[graphics processing units]
+____________________________________
+
+
+
+cpu instance
+gpu instances
+
+micro
+
+
+
+instances features:
+_______________________
+
+  OS
+persistance storage
+
+ebs   hdd,sdd
+
+eip
+
+monitoring
+
+auto-scaling
+
+bare-metal instance
+*ec2 fleet
+instace life cycle
+
+how to launch virtual server in aws:
+________________________________________
+
+choose AMI---amazon machine Image
+choose instance type
+choose instance configurations/
+add storage
+add tags
+configure security groups
+review and launch
+crate the key pairs
+
+launch the virtualserver
+
+how to connect to virtual server
+
+ec2:  instance types,ami,storage ,network,autoscaling,elb
+
+file level-----efs
+block level------ebs
+object level secrets----s4
+
+
+how to connect to ur instance :
+____________________________________
+
+1) thru command prompt/dos/commandline prompt from windows
+
+  ssh -i "myserverpem.pem" ec2-user@ec2-18-204-197-191.compute-1.amazonaws.com
+
+2)download and install putty,puttygen
+
+puttygen--requires the input as pem file---create ppk----become input to the putty
+
+in windows: cli/command prompt/dos
+3)powershell
+shell
+
+4) git bash
+5) use mobaxterm
+
+=====================================================================================
+12/22/2022-Day-3-class-3-aws-IAM
+
+
+IAM :
+___________
+
+   Identity and 
+   Access Management
+
+Idenity:  authenitication
+access: authorization
+
+is a webservice 
+
+   admin
+   iam user
+
+
+users
+groups
+roles
+policies
+
+
+codecommit--repo---javacode+dockerfile--yaml---codebuild-image----ecr---ecs/eks--
+
+  cloudwatch
+
+
+
+
+
+iam features:
+_____________________
+
+
+
+
+centralise the user managment
+
+shared accesss to aws account
+
+effective granualar permissions
+
+
+identity fedaration
+
+AD-MS
+ladap
+facebook
+gmail,...
+linkedln
+MFA
+PERMISSION BASED ON ORGANIZATIONAL GROUPS
+IAM IA GLOBAL SERVICE
+
+access-key id:AKIASTQP5ZUXVND54D56
+secret-accesske:
+OY^)ddJ]svNc1I4
+
+
+what is Access Advisor:
+________________________
+
+Access Advisor shows the services that this group can access and when those services were last accessed. Review this data to remove unused permissions. 
+
+
+
+
+https://179348294959.signin.aws.amazon.com/console
+
+
+iamuser:srinivas
+pwd: srinivas@dev1
+
+179348294959
+AWS CLI:
+_____________
+AKIASTQP5ZUX7SG7DDFZ
+IAM USER: surya
+pwd: surya@1234.
+
+=======================================================================
+
+12/23/2022-Day-4-class-4-aws-IAM
+
+who is responsible for security:
+_________________________________
+
+aws-amazon
+______________
+
+   public provider
+
+ *protect the network --automated monitoring system and robut internet FROM DDOS
+ *performing background checks on employees
+ *  decommissioning  storage devices by physcially destroying them after end of the line
+ * ensure physical and environmental aecueity of data centers ,including fire protection
+     and security staff
+
+
+what is our responsibilities:
+_______________________________
+aws deve,aws admin.aws devopsengineer or sysops
+
+ * installing software updates
+  20 ec2 server--dev
+  10 uat/wa
+  300
+pre-prod
+prod
+
+user data-scripts---logic ------ec2 bootstrapping
+
+
+*restrict accss to ur aws account
+
+*create your own private network :  security groups/ acl
+
+* controlling network trafic to and from ec2 instance
+
+note:  managing parches for the os and need to install additonal software on virtual servers
+
+
+
+IAM:
+   
+AWS RESOURCES: S3,EC2 
+-------------------------------------------------------------------------------------
+
+
+
+HOW IAM works:
+__________________
+
+
+
+ principal
+
+  terms
+  authentication
+  resources
+authorization
+request
+actions or operations
+
+
+
+
+
+what is IAM Resources:
+________________________________
+
+
+
+
+user,group,role,policy [physical and logical objects]
+
+
+   add,edit,remove from IAM
+
+
+
+
+IAM Identities:
+________________________
+ is resource object 
+
+   roles,users,groups
+
+
+
+* idenity
+ * authenitication
+ * authorization
+
+IAM entity:
+___________________
+
+  used for authentication
+    users/roles
+
+
+
+principals:
+________________
+
+user or application 
+
+     root user
+     iam user
+    iam role
+  fedarated users and assumed roles
+
+
+HOW TO USE AWS-CLI
+______________________
+
+
+https://179348294959.signin.aws.amazon.com/console
+testuser
+user@123#
+user @12345#
+
+accesskeyid: AKIASTQP5ZUX7G4Q3C3Z
+secretaccesskey: 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
+
+
+fetch users info from /etc/passwd file and create those useras Iam users in aws:
+________________________________________________________________________________
+
+
+cut -f1 -d: /etc/passwd >users.txt
+while read user
+do
+        aws iam create-user --user-name $user
+        echo "created user $user successfully"
+done<users.txt
+
+
+remove the users
+__________________
+
+
+
+cut -f1 -d: /etc/passwd >users.txt
+while read user
+do
+        aws iam delete-user --user-name $user
+        echo " $user deleted successfully"
+done<users.txt
+
+==================================================================================
+12/27/2022-Day-5-class-5-aws-IAM
+
+
+policy:
+______________
+
+                json document 
+                set of permissions 
+
+typs of policies:
+_____________________
+
+  * Inline -------------------------only one user/one group/role
+  * Managed policy-------------------------------------------------aws
+  * custom policy--------------------------------------------------users/dev/
+
+
+
+policy generator -options
+
+what is json policy format:
+_____________________________
+
+json stands for javascript object notation
+3 data reprasentation languages:
+_______________________________________-
+
+
+xml
+json
+yaml-------------------docker+k8s+ansible+
+
+
+
+
+
+
+JSON element reference:
+_________________________
+Version
+Id
+Statement
+Sid
+Effect
+Principal
+NotPrincipal
+Action
+NotAction
+Resource
+NotResource
+
+version
+
+2012-10-17.:
+Id
+
+The Id element specifies an optional identifier for the policy. The ID is used differently in different services.
+
+Statement:
+____________________
+
+
+
+The Statement element is the main element for a policy. This element is required. The Statement element can contain a single statement or an array of individual statements. Each individual statement block must be enclosed in curly braces { }. For multiple statements, the array must be enclosed in square brackets [ ].
+
+"Statement": [{...},{...},{...}]
+
+datatype variablle[]=new {12,3,4,56};
+______________
+ This is the current version of the policy language, and you should always include a Version element and set it to 2012-10-17. Otherwise, you cannot use features such as policy variables
+
+Effect:
+________
+
+
+The Effect element is required and specifies whether the statement results in an allow or an explicit deny. Valid values for Effect are Allow and Deny.
+
+Effect":"Allow"
+Effect":"deny"
+
+
+
+json
+
+   elements------action--resources--principal--iamuser/group/role/
+
+                                      RBAC
+                                     ABAC
+
+NOTORINICIPal:
+
+
+Use the NotPrincipal element to specify the IAM user, federated user, IAM role, AWS account, AWS service, or other principal that is not allowed or denied access to a resource.
+
+
+
+
+The Action element describes the specific action or actions that will be allowed or denied. Statements must include either an Action or NotAction element. Each AWS service has its own set of actions that describe tasks that you can perform with that service.
+
+
+
+
+{
+  "Version": "2012-10-17",
+  "Statement": {
+    "Effect": "Deny",
+    "Action": "s3:*",
+    "NotResource": [
+      "arn:aws:s3:::HRBucket/Payroll",
+      "arn:aws:s3:::HRBucket/Payroll/*"
+    ]
+  }
+}
+
+what is arn:
+_______________________
+
+
+amazon resource name
+
+
+
+the Resource element specifies the object or objects that the statement covers. Statements must include either a Resource or a NotResource element.
+
+
+
+$aws iam put-user-policy --user-name johndav --policy-name S3ReadAccessPolicy --policy-document file://C:\Users\kadap\Desktop\S3ReadAccessPolicy.json
+
+note: at the begining of and before { should  not have spaces in the json template 
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:ListAllMyBuckets"
+            ],
+            "Resource": "arn:aws:s3:::*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "S3:ListBucket",
+                "s3:GetBucketLocation"
+            ],
+            "Resource": "arn:aws:s3:::johndav"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:PutObject",
+                "s3:GetObject",
+                "s3:DeleteObject"
+            ],
+            "Resource": "arn:aws:s3:::johndav/*"
+        }
+    ]
+}
+
+
+
+========================================================================
+
+12/28/2022-Day-6-class-6-aws-IAM
+
+how to create IAM groups and assigning  group level permissions:
+_________________________________________________________________
+
+
+aws iam create-group  --group-name development
+
+
+
+
+aws iam add-user-to-group --user-name johndav --group-name development
+
+
+crate an inline IAM policy for the group-development
+
+
+aws iam get-group --group-name development
+
+
+
+{
+ "Version": "2012-10-17",
+ "Statement": [
+
+  {
+      "Effect": "Allow",
+      "Action": "ec2:DescribeInstances",
+      "Resource": "*"
+},
+
+{
+   "Effect": "Allow",
+   "Action": "ec2:TerminateInstances",
+   "Resource": "arn:aws:ec2:ap-south-1:179348294959:instances/*",
+   "Condition": {
+       "StringEquals":  {
+            "ec2.ResourceTag/stack": "dev"
+}
+}
+}
+]
+}
+
+
+iam put-group-policy --group-name development --policy-name Ec2DevGroupPolicy --policy-document file://C:\Users\kadap\Desktop\Ec2DevGroupPolicy.json
+
+============================================================================================
+
+12/28/2022-Day--class-7-aws-IAM
+
+
+creating IAM Roles:
+__________________________________
+
+
+S3RoleForEc2.json
+________________________
+
+{
+  "Version": "2012-10-17",
+  "Statement": {
+
+    "Effect": "Allow",
+    "Principal": {"Service": "ec2.amazonaws.com"},
+    "Action": "sts:AssumeRole"
+  }
+}
+$aws iam create-role --role-name S3RoleForEc2 --assume-role-policy-document file://s3RoleForEc2.json
+
+
+create inline policy for the role
+______________________________________
+S3RoleForEc2Policy
+_____________________
+
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+    "Effect": "Allow",
+    "Action":  [
+
+         "s3:ListBucket"
+],
+    "Resource": "arn:aws:s3:::appconfiguration"
+  },
+{
+  "Effect": "Allow",
+  "Action": [
+
+     "s3:PutObject",
+     "s3:GetObject",
+     "s3:DeleteObject"
+],
+  
+    "Resource": "arn:aws:s3:::appconfiguration/*"
+
+}
+]
+}
+
+aws iam put-role-policy --role-name S3RoleForEc2 --policy-name s3RoleForEc2Policy --policy-document file://s3roleforec2policy.json
+
+create and assign an instance profile to the role:
+________________________________________________________
+
+
+aws iam create-instance-profile --instance-profile-name s3RoleForEc2Profile
+
+
+launch ec2 instance with the role:
+_____________________________________
+
+
+$aws ec2 run-instances --image-id ami-0cca134ec43cf708f --count 1 --instance-type t2.micro --iam-instance-profile Name=S3RoleForEc2Profile
+
+
+
+Test the Installation:
+________________________
+
+aws  s3 mb s3://appconfiguration
+
+aws ls s3://appconfiguration
+
